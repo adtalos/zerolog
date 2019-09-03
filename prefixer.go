@@ -22,10 +22,13 @@ func (e *Event) FieldsWithUnderscorePrefix(fields map[string]interface{}) *Event
 
 func prefixMapKeys(fields map[string]interface{}, prefix string) map[string]interface{} {
 	if prefix != "" {
+		n := make(map[string]interface{}, len(fields))
+
 		for k, v := range fields {
-			delete(fields, k)
-			fields[prefix+k] = v
+			n[prefix+k] = v
 		}
+
+		return n
 	}
 	return fields
 }
