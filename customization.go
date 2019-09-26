@@ -32,3 +32,13 @@ func prefixMapKeys(fields map[string]interface{}, prefix string) map[string]inte
 	}
 	return fields
 }
+
+// Event _
+func (c Context) Event(event string) Context {
+	return c.Str("_event", event)
+}
+
+// Event _
+func (e *Event) Event(event string) *Event {
+	return e.Str("_event", event)
+}
